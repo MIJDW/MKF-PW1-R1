@@ -1,0 +1,109 @@
+/*BODY Y HEADER*/
+
+body{
+    margin: 0;
+    background-image: url(../Imagenes/PANDAANONIMO.webp.webp);
+    background-repeat: no-repeat;
+    background-size: auto auto;
+}
+
+/*Se le agrega sector para evitar repetir codigo*/
+body, .encabezado .encabezado-division a,.sector .formulario a{
+    color: #DB8C67;
+    text-decoration: none;
+}
+
+/*Se le agrega pie para evitar repetir codigo*/
+.encabezado, .pie{
+    background-color: rgb(45, 48, 134, 0.9);
+    height: 4em;
+    padding: 1em 0;
+    border: 0.1em solid #2D3086;
+}
+
+.encabezado .encabezado-division .logo{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    font-size: 1.3em;
+}
+
+.encabezado .encabezado-division .acceso{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+    text-align: right;
+}
+
+.encabezado .encabezado-division p{
+    display: inline-block;
+    margin: 0 none;
+    width: 50%;
+}
+
+.encabezado .encabezado-division{
+    padding: 0 1em;
+}
+
+/*SECTION*/
+
+.sector{
+    margin: 3.7em 0;
+}
+
+.sector.notificacion{
+    margin: 6.1em 0;;
+}
+
+.sector .formulario{
+    background-color: rgb(37, 36, 64, 0.9);
+    width: 25%;
+    margin: auto;
+    border: 0.3em solid rgb(37, 36, 64);
+    border-radius: 5px;
+}
+
+.sector .formulario .formulario-caja{
+    border: none;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.sector .formulario .formulario-caja .legenda{
+    text-align: center;
+    padding-top: 1em;
+}
+
+.sector .formulario .formulario-caja .etiqueta .espacio{
+    height: 2em;
+    width: 96%;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+.sector .formulario .formulario-caja .etiqueta .boton{
+    width: 100%;
+    height: 2em;
+    background-color: rgb(135, 189, 103);
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+.sector .formulario .formulario-caja .etiqueta #cancelar{
+    background-color: rgb(191, 98, 98);
+}
+
+.sector .formulario .formulario-caja.caja-radio .etiqueta{
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/*FOOTER*/
+
+.pie .lista-desordenada{
+    display: flex;
+}
+
+.pie .lista-desordenada .linea{
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}

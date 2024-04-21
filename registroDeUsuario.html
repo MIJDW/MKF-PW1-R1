@@ -1,11 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGISTRO DE USUARIO</title>
-</head>
-<body>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./Estilos/estiloInicio.css">
+        <title>PANDA ANONIMO REGISTRAR USUARIO</title>
+
+    </head>
+
+    <body>
     
-</body>
+        <header class="encabezado">
+
+            <div class="encabezado-division">
+
+                <p class="logo"><a href="./index.html">PANDA ANONIMO</a></p>
+
+            </div>
+
+        </header>
+
+        <main>
+
+            <section class="sector">
+
+                <form action="./index.html" method="get" class="formulario">
+
+                    <fieldset class="formulario-caja">
+
+                        <legend class="legenda">Registrarse</legend>
+
+                        <label class="etiqueta" for="nombre"><input class="espacio" type="text" name="nombre" id="nombre" placeholder="Nombre:" required></label>
+                        <label class="etiqueta" for="apellido"><input class="espacio" type="text" name="apellido" id="apellido" placeholder="Apellido:" required></label>
+                        <label class="etiqueta" for="email"><input class="espacio" type="email" name="email" id="email" placeholder="Email:" required></label>
+                        <label class="etiqueta" for="usuario"><input class="espacio" type="text" name="usuario" id="usuario" placeholder="Usuario:" required></label>
+                        <label class="etiqueta" for="password"><input class="espacio" type="password" id="password" name="password" placeholder="Contraseña:" required></label>
+                        <label class="etiqueta" for="password"><input class="espacio" type="password" id="password" name="password" placeholder="Repetir contraseña:" required></label>
+
+                    </fieldset>
+
+                    <fieldset class="formulario-caja caja-radio">
+
+                        <legend class="legenda">Metodo de pago</legend>
+
+                        <label class="etiqueta" for="credito"><input type="radio" id="credito" name="credito-debito" required> Tajeta de credito</label>
+                        <label class="etiqueta" for="debito"><input type="radio" id="debito" name="credito-debito" required> Tajeta de debito</label>
+
+                    </fieldset>
+
+                    <fieldset class="formulario-caja">
+
+                        <label class="etiqueta" for="numero-tarjeta"><input class="espacio" type="number" name="numero-tarjeta" id="numero-tarjeta" placeholder="Numero de la tarjeta:" required></label>
+                        <label class="etiqueta" for="titular"><input class="espacio" type="text" name="titular" id="titular" placeholder="Titular de la tarjeta:" required></label>
+                        <label class="etiqueta" for="cvv"><input class="espacio" type="number" name="cvv" id="cvv" placeholder="CVV:" required></label>
+                        
+                    </fieldset>
+
+                    <fieldset class="formulario-caja">
+
+                        <legend>Fecha de caducidad:</legend>
+
+                        <label class="etiqueta" for="mes"><input class="espacio" type="month" name="mes" id="mes" required></label>
+
+                    </fieldset>
+
+                    <fieldset class="formulario-caja caja-radio">
+
+                        <legend>Emisor de la tarjeta:</legend>
+
+                        <label class="etiqueta" for="visa"><input type="radio" id="visa" name="visa-mastercard-cabal" required> VISA</label>
+                        <label class="etiqueta" for="mastercard"><input type="radio" id="mastercard" name="visa-mastercard-cabal" required> MASTERCARD</label>
+                        <label class="etiqueta" for="cabal"><input type="radio" id="cabal" name="visa-mastercard-cabal" required> CABAL</label>
+
+                    </fieldset>
+
+                    <fieldset class="formulario-caja">
+
+                        <label class="etiqueta" for="confirmar"><input class="boton" type="submit" value="Confirmar" id="confirmar-registro" name="confirmar"></label>
+                        <label class="etiqueta" for="cancelar"><a href="./index.html"><input class="boton" type="button" value="Cancelar" id="cancelar" name="cancelar"></a></label>
+
+                    </fieldset>
+                   
+                </form>
+
+            </section>
+
+        </main>
+
+        <footer class="pie">
+
+            <ul class="lista-desordenada">
+                <li class="linea">Integrante1</li>
+                <li class="linea">Integrante2</li>
+                <li class="linea">Integrante3</li>
+                <li class="linea">Integrante4</li>
+            </ul>
+
+        </footer>
+
+    </body>
+
 </html>

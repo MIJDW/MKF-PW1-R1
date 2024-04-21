@@ -5,50 +5,49 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./Estilos/estiloIndex.css">
-        <title>UNFLIX</title>
+        <link rel="stylesheet" href="./Estilos/estiloInicio.css">
+        <title>PANDA ANONIMO INDEX</title>
 
     </head>
 
     <body>
+    
+        <header class="encabezado">
+
+            <div class="encabezado-division">
+
+                <p class="logo"><a href="./index.html">PANDA ANONIMO</a></p><p class="acceso"><a href="./registroDeUsuario.html">Registrar usuario</a></p>
+
+            </div>
+
+        </header>
 
         <main>
 
-            <header>
+            <section class="sector">
 
-                <div class="caja">
+                <form action="./principal.html" method="get" class="formulario">
 
-                    <p class="titulo">UNFLIX</p><p class="registro"><a href="./registroDeUsuario.html">Registrar usuario</a></p>
+                    <fieldset class="formulario-caja">
 
-                </div>
+                        <legend class="legenda">INICIA SESION</legend>
 
-            </header>
+                        <label class="etiqueta" for="email"><input class="espacio" type="email" name="email" id="email" placeholder="Email:" required></label>
+                        <label class="etiqueta" for="password"><input class="espacio" type="password" id="password" name="password" placeholder="Contraseña:" required></label>
 
-            <section>
+                    </fieldset>
 
-                <form action="./principal.html" method="get">
+                    <fieldset class="formulario-caja">
 
-                    <fieldset>
+                        <label class="etiqueta" for="checkbox"><input class="caja" type="checkbox" id="checkbox" name="checkbox"> Recuerdame</label>
 
-                        <article class="uno">
+                    </fieldset>
 
-                            <legend>INICIA SESION</legend>
+                    <fieldset class="formulario-caja">
 
-                            <label for="email"><input type="email" name="email" id="email" placeholder="Email:" required></label>
-                            <label for="password"><input type="password" id="password" name="password" placeholder="Contraseña:" required></label>
+                        <label class="etiqueta" for="submit"><input class="boton" type="submit" value="Iniciar Sesion" id="submit" name="submit"></label>
 
-                            
-
-                        </article>
-
-                        <article class="dos">
-
-                            <label for="checkbox"><input type="checkbox" id="checkbox" name="checkbox"> Recuerdame</label>
-                            <label for="submit"><input type="submit" value="Iniciar Sesion" id="submit" name="submit"></label>
-
-                            <p><a href="./recuperacionDeContraseña.html">¿Olvidaste la contraseña?</a></p>
-
-                        </article>
+                        <p class="legenda"><a href="./recuperacionDeContraseña.html">¿Olvidaste la contraseña?</a></p>
 
                     </fieldset>
 
@@ -57,6 +56,17 @@
             </section>
 
         </main>
+
+        <footer class="pie">
+
+            <ul class="lista-desordenada">
+                <li class="linea">Integrante1</li>
+                <li class="linea">Integrante2</li>
+                <li class="linea">Integrante3</li>
+                <li class="linea">Integrante4</li>
+            </ul>
+
+        </footer>
 
     </body>
 
