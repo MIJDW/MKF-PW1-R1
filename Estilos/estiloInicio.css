@@ -52,6 +52,10 @@ body, .encabezado .encabezado-division a,.sector .formulario a{
     margin: 6.1em 0;;
 }
 
+.sector.creacion{
+    margin: 8.3em 0;
+}
+
 .sector .formulario{
     background-color: rgb(37, 36, 64, 0.9);
     width: 25%;
