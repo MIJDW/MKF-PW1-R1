@@ -105,6 +105,8 @@ body, .encabezado .encabezado-division a,.sector .formulario a{
 .pie{
     position: absolute;
     width: 100%;
+    margin-bottom: 0;
+    
 }
 
 .pie .lista-desordenada{
