@@ -58,10 +58,10 @@ body, .encabezado .encabezado-division a,.sector .formulario a{
 
 .sector .formulario{
     background-color: rgb(37, 36, 64, 0.9);
-    width: 25%;
+    width: 20em;
     margin: auto;
     border: 0.3em solid rgb(37, 36, 64);
-    border-radius: 5px;
+    border-radius: 0.5em;
 }
 
 .sector .formulario .formulario-caja{
@@ -77,13 +77,13 @@ body, .encabezado .encabezado-division a,.sector .formulario a{
 
 .sector .formulario .formulario-caja .etiqueta .espacio{
     height: 2em;
-    width: 96%;
+    width: 18.2em;
     margin-top: 0.3em;
     margin-bottom: 0.3em;
 }
 
 .sector .formulario .formulario-caja .etiqueta .boton{
-    width: 100%;
+    width: 18.8em;
     height: 2em;
     background-color: rgb(135, 189, 103);
     margin-top: 0.3em;
@@ -102,12 +102,18 @@ body, .encabezado .encabezado-division a,.sector .formulario a{
 
 /*FOOTER*/
 
+.pie{
+    position: absolute;
+    width: 100%;
+}
+
 .pie .lista-desordenada{
     display: flex;
 }
 
 .pie .lista-desordenada .linea{
-    width: 20%;
+    width: 10em;
     margin-left: auto;
     margin-right: auto;
+    list-style-type: none;
 }
