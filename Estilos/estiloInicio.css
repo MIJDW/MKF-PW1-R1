@@ -7,6 +7,7 @@ body{
     background-size: auto auto;
     position: relative;
     min-height: 100vh;
+    padding-bottom: 6em;
 }
 
 /*Se le agrega sector para evitar repetir codigo*/
@@ -107,6 +108,7 @@ body, .encabezado .encabezado-division a,.sector .formulario a{
 .pie{
     position: absolute;
     width: 99.8%;
+    bottom: 0;
 }
 
 .pie .lista-desordenada{
