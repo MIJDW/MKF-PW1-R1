@@ -5,6 +5,7 @@ body{
     background-image: url(../Imagenes/PANDAANONIMO.webp);
     background-repeat: no-repeat;
     background-size: auto auto;
+    min-height: 100vh;
 }
 
 /*Se le agrega sector para evitar repetir codigo*/
@@ -104,7 +105,7 @@ body, .encabezado .encabezado-division a,.sector .formulario a{
 
 .pie{
     position: absolute;
-    width: 100%;
+    width: 99.8%;
 }
 
 .pie .lista-desordenada{
@@ -112,6 +113,7 @@ body, .encabezado .encabezado-division a,.sector .formulario a{
 }
 
 .pie .lista-desordenada .linea{
+    font-size: 0.8em;
     width: 10em;
     margin-left: auto;
     margin-right: auto;
