@@ -5,6 +5,7 @@ body{
     background-image: url(../Imagenes/PANDAANONIMO.webp);
     background-repeat: no-repeat;
     background-size: auto auto;
+    position: relative;
     min-height: 100vh;
 }
 
