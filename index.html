@@ -5,49 +5,46 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./Estilos/estiloInicio.css">
-        <title>PANDA ANONIMO INDEX</title>
+        <link rel="stylesheet" href="./EstilosComunes/Estilos_Comunes_Uno.css">
+        <link rel="stylesheet" href="./Estilos.css">
+        <title>INDEX</title>
 
     </head>
 
-    <body>
-    
+    <body class="cuerpo wrapper">
+
         <header class="encabezado">
 
-            <div class="encabezado-division">
+            <div class="diseño">
 
-                <p class="logo"><a href="./index.html">PANDA ANONIMO</a></p><p class="acceso"><a href="./registroDeUsuario.html">Registrar usuario</a></p>
+                <p class="unflix"><a href="./Index.html">UNFLIX</a></p><p class="enlace"><a href="./Registro/Registro.html">Registrar usuario</a></p>
 
             </div>
 
         </header>
 
-        <main>
+        <main class="main">
 
             <section class="sector">
 
-                <form action="./principal.html" method="get" class="formulario">
+                <form action="./Principal/Principal.html" method="get" class="formulario">
 
-                    <fieldset class="formulario-caja">
+                    <fieldset class="conjunto">
 
-                        <legend class="legenda">INICIA SESION</legend>
+                        <div class="diseño wrapper">
 
-                        <label class="etiqueta" for="email"><input class="espacio" type="email" name="email" id="email" placeholder="Email:" required></label>
-                        <label class="etiqueta" for="password"><input class="espacio" type="password" id="password" name="password" placeholder="Contraseña:" required></label>
+                            <h1 class="titulo-inicio a">Iniciar sesion</h1>
 
-                    </fieldset>
+                            <label class="etiqueta b" for="email"><input class="espacio" type="email" name="email" id="email" placeholder="Email:" required></label>
+                            <label class="etiqueta c" for="password"><input class="espacio" type="password" id="password" name="password" placeholder="Contraseña:" required></label>
 
-                    <fieldset class="formulario-caja">
+                            <label class="etiqueta box d" for="checkbox"><input class="caja" type="checkbox" id="checkbox" name="checkbox"> Recuerdame</label>
 
-                        <label class="etiqueta" for="checkbox"><input class="caja" type="checkbox" id="checkbox" name="checkbox"> Recuerdame</label>
+                            <label class="etiqueta e" for="submit"><input class="submit" type="submit" value="Inicia sesion" id="submit" name="submit"></label>
 
-                    </fieldset>
+                            <p class="titulo-inicio f"><a href="./Recuperacion/Recuperacion.html">¿Olvidaste la contraseña?</a></p>
 
-                    <fieldset class="formulario-caja">
-
-                        <label class="etiqueta" for="submit"><input class="boton" type="submit" value="Iniciar Sesion" id="submit" name="submit"></label>
-
-                        <p class="legenda"><a href="./recuperacionDeContraseña.html">¿Olvidaste la contraseña?</a></p>
+                        </div>
 
                     </fieldset>
 
@@ -59,15 +56,10 @@
 
         <footer class="pie">
 
-            <ul class="lista-desordenada">
-                <li class="linea">Integrante1</li>
-                <li class="linea">Integrante2</li>
-                <li class="linea">Integrante3</li>
-                <li class="linea">Integrante4</li>
-            </ul>
+
 
         </footer>
-
+    
     </body>
 
 </html>
