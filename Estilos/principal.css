@@ -1,0 +1,103 @@
+.contenedorCategoria{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2em;
+    margin: 1em;
+}
+label, option, input{
+    font-size: 1.1em;  
+}
+label{
+    margin-right: 1em;
+   /* font-weight: bold;*/
+}
+
+.contenedorImg{
+    width: 97%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: 1.25em; 
+    padding: 1em 0.5em;
+    gap: 0.5em;
+   /* box-shadow: 0 0 1.25em 0 rgba(255, 255, 255, 3) ;*/
+}
+.contenedorImg .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.5em;
+}
+/* Responsive Galery 
+*/
+@media (max-width: 1290px) {
+    .contenedorImg {
+        width: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin: auto;
+        margin: 0px 20px;
+        grid-gap: 20px
+    }
+}
+@media screen and (max-width: 900px){
+    .contenedorImg {
+        width: auto; 
+         display: grid; 
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 20px;
+        box-sizing: border-box;
+        width: auto;
+        grid-gap: 15px;
+    }
+    .contenedorCategoria{
+        padding: 1.5rem;
+        margin: 2.5rem 3.0rem;
+        margin-top: 3rem;
+        justify-content: space-around;
+    }
+
+}
+@media(max-width: 640px) {
+    .contenedorImg {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        grid-gap: 3.125rem;
+    }
+}
+/* Responsive Categorias
+*/
+@media(max-width: 640px) {
+    .contenedorCategoria{
+        display: flex;
+        margin: auto;
+        padding: 0%;
+        flex-wrap: wrap;
+    }
+    .contenedorCategoria input,
+    .contenedorCategoria select,
+    .contenedorCategoria label,
+    .contenedorCategoria option{
+
+        font-size: 0.6rem;
+        height: 32px;
+    }
+
+    #icons{
+        font-size: 18px;
+        display: inline;
+    }
+
+    #busca{
+        width: 70%;
+    }
+    #categoria{
+        width: max-content;
+    }
+
+}
+
+
+
