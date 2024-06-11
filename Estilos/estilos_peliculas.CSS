@@ -168,7 +168,7 @@ h3{
 /* Responsive Galery 
 */
 @media (max-width: 1290px) {
-    .galery {
+    .galery{
         width: 80%;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -176,7 +176,7 @@ h3{
     }
 }
 @media(max-width: 820px) {
-    .galery {
+    .galery{
         display: grid;
         grid-template-columns: 1fr;
     }
