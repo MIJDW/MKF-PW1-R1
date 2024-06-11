@@ -143,6 +143,8 @@ function agregarImgSegunCantidad(cantidad){
 
 const HOME = PELICULAS.length + SERIES.length;
 
+agregarImgSegunCantidad(HOME)
+
 function agregarImgSegunURL(TituloNavbar){
     switch(TituloNavbar){
         case "Home":
@@ -172,7 +174,20 @@ for(let categoria of categorias){
     establecerCategoria(categoria);
 }
 
+function eliminarImgSegunCantidad(cantidad){
+    let imgs = document.querySelectorAll(".item");
+    for(let i = 0; i < cantidad; i++){
+        imgs[i].remove();
+    }
+}
+
 agregarImgSegunURL(NOMBRE_VISTA)
+
+const ELIMINAR_IMG = document.querySelectorAll(".item");
+
+if(ELIMINAR_IMG.length > HOME){
+    eliminarImgSegunCantidad(HOME);
+}
 /*----------------------------------------------------------------------------------------------------- */
 function eliminarImg(){
     let imgs = document.querySelectorAll(".item");
