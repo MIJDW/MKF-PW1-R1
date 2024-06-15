@@ -175,7 +175,7 @@ option{
 /* Responsive Galery 
 */
 @media (max-width: 1290px) {
-    .galery{
+    .galery {
         width: 80%;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -183,7 +183,7 @@ option{
     }
 }
 @media(max-width: 640px) {
-    .galery{
+    .galery {
         display: grid;
         grid-template-columns: 1fr;
     }

@@ -1,4 +1,4 @@
-import { validadorString, enfocarInputs } from "./js/formularioAux.js";
+import { validarLogin, enfocarInputs } from "./js/formularioAux.js";
 
 //primero a que elemento queremos agarrar para aniadirle la funcion que queremos
 const formulario= document.querySelector(".formulario");
@@ -8,12 +8,11 @@ formulario.addEventListener("submit", (e)=>{
    let contrasenia= document.querySelector("#password").value;
    const inputs = document.querySelectorAll('.espacio');
    
-   if(validadorString(email) && validadorString(contrasenia)){
-    localStorage.setItem(email);
+   if(validarLogin(email,contrasenia) ){
+    localStorage.setItem("correoLogeado",email);
     formulario.submit();
    }else{
-    enfocarInputs(inputs);
+    alert("ingreso invalido, revisar correo y contraseña");
     e.preventDefault();
     }
 });
-
