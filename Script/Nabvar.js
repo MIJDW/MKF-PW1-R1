@@ -34,3 +34,8 @@ function agregarItemAlMenu(url, titulo, icono){
 for(let i = 0; i < NAVBAR["url"].length; i++){
     agregarItemAlMenu(NAVBAR["url"][i], NAVBAR["titulo"][i], NAVBAR["icono"][i]);
 }
+
+const CERRAR = document.querySelector(".Cerrar");
+CERRAR.addEventListener("click", () =>{
+    localStorage.clear();
+})

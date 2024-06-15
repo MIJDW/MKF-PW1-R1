@@ -63,9 +63,10 @@ function agregarCategorias(array, elementos){
 function agregarCategoriaSegunURL(TituloNavbar){
     let categorias = []
     switch(TituloNavbar){
+        case 'Inicia sesion': 
         case "Home":
             categorias = agregarCategorias(categorias, PELICULAS);
-            categorias = agregarCategorias(categorias, SERIES);
+            categorias = agregarCategorias(categorias, SERIES); 
             break;
         case "Series":
             categorias = agregarCategorias(categorias, SERIES);
@@ -143,12 +144,11 @@ function agregarImgSegunCantidad(cantidad){
 
 const HOME = PELICULAS.length + SERIES.length;
 
-agregarImgSegunCantidad(HOME)
-
 function agregarImgSegunURL(TituloNavbar){
     switch(TituloNavbar){
+        case 'Inicia sesion': 
         case "Home":
-            agregarImgSegunCantidad(HOME);
+            agregarImgSegunCantidad(HOME);   
             break;
         case "Series":
             agregarImgSegunCantidad(SERIES.length);
@@ -166,28 +166,28 @@ const url_vista = document.location.href;
 const url = new URL(url_vista);
 const NOMBRE_VISTA = url.searchParams.get(QUERY_PARAMS_NAV);
 
+const QUERY_PARAMS_EMAIL = "submit";
+
+const url_HOME = document.location.href;
+const url_NEW = new URL(url_HOME);
+const NOMBRE_HOME = url_NEW.searchParams.get(QUERY_PARAMS_EMAIL);
+
+console.log(NOMBRE_HOME);
+
 let categorias = [];
 
-categorias = agregarCategoriaSegunURL(NOMBRE_VISTA);
+if(NOMBRE_HOME == 'Inicia sesion'){
+    agregarImgSegunURL(NOMBRE_HOME);
+    categorias = agregarCategoriaSegunURL(NOMBRE_HOME);
+}else{
+    agregarImgSegunURL(NOMBRE_VISTA);
+    categorias = agregarCategoriaSegunURL(NOMBRE_VISTA);
+}
 
 for(let categoria of categorias){
     establecerCategoria(categoria);
 }
 
-function eliminarImgSegunCantidad(cantidad){
-    let imgs = document.querySelectorAll(".item");
-    for(let i = 0; i < cantidad; i++){
-        imgs[i].remove();
-    }
-}
-
-agregarImgSegunURL(NOMBRE_VISTA)
-
-const ELIMINAR_IMG = document.querySelectorAll(".item");
-
-if(ELIMINAR_IMG.length > HOME){
-    eliminarImgSegunCantidad(HOME);
-}
 /*----------------------------------------------------------------------------------------------------- */
 function eliminarImg(){
     let imgs = document.querySelectorAll(".item");
@@ -222,6 +222,7 @@ const SELECT_CATEGORIA = document.querySelector("#categoria");
 
 function agregarImgSegunCategoriaYURL(nuevasImg, TituloNavbar){
     switch(TituloNavbar){
+        case 'Inicia sesion': 
         case "Home":
             nuevasImg = renovar(SELECT_CATEGORIA.value,nuevasImg, SERIES);
             nuevasImg = renovar(SELECT_CATEGORIA.value, nuevasImg, PELICULAS);
@@ -236,14 +237,27 @@ function agregarImgSegunCategoriaYURL(nuevasImg, TituloNavbar){
 }
 
 SELECT_CATEGORIA.addEventListener("change", () =>{
-    agregarImgSegunCategoriaYURL(nuevasImg, NOMBRE_VISTA);
+    if(NOMBRE_HOME == "Inicia sesion"){
+        agregarImgSegunCategoriaYURL(nuevasImg, NOMBRE_HOME);
+    if(SELECT_CATEGORIA.value == 0){
+        eliminarImg();
+        agregarImgSegunURL(NOMBRE_HOME);
+    }else{
+        actualizar(nuevasImg);
+        console.log(nuevasImg);
+    }
+    nuevasImg = [];
+    }else{
+        agregarImgSegunCategoriaYURL(nuevasImg, NOMBRE_VISTA);
     if(SELECT_CATEGORIA.value == 0){
         eliminarImg();
         agregarImgSegunURL(NOMBRE_VISTA);
     }else{
         actualizar(nuevasImg);
-        nuevasImg = [];
-    }   
+        console.log(nuevasImg);
+    }
+    nuevasImg = [];
+    }
 })
 /*-------------------------------------------------------------------------------------------------------*/
 function empiezaCon(texto, subtexto){
@@ -274,6 +288,7 @@ const BUSQUEDA = document.getElementById("busca");
 
 function agregarImgSegunSubtexto(filtro, TituloNavbar){
     switch(TituloNavbar){
+        case 'Inicia sesion':
         case "Home":
             filtro = filtrarImagenes(filtro, BUSQUEDA.value, SERIES)
             filtro = filtrarImagenes(filtro, BUSQUEDA.value, PELICULAS)
@@ -288,7 +303,19 @@ function agregarImgSegunSubtexto(filtro, TituloNavbar){
 }
 
 BUSQUEDA.addEventListener("keyup", () =>{
-    agregarImgSegunSubtexto(filtro, NOMBRE_VISTA)
+   
+    if(NOMBRE_HOME == "Inicia sesion"){
+        agregarImgSegunSubtexto(filtro, NOMBRE_HOME)
+    if(BUSQUEDA.value == ""){
+        eliminarImg();
+        agregarImgSegunURL(NOMBRE_HOME);
+    }else{
+        console.log(filtro)
+        actualizar(filtro);
+        filtro = [];
+    } 
+    }else{
+        agregarImgSegunSubtexto(filtro, NOMBRE_VISTA)
     if(BUSQUEDA.value == ""){
         eliminarImg();
         agregarImgSegunURL(NOMBRE_VISTA);
@@ -296,5 +323,6 @@ BUSQUEDA.addEventListener("keyup", () =>{
         console.log(filtro)
         actualizar(filtro);
         filtro = [];
-    }   
+    } 
+    }
 })
