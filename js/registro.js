@@ -1,5 +1,5 @@
 //imports
-import { contengaSoloLetras, validarQueSeaCorreo, queContengaLetrasYNumeros, validarContrasenia, validarNumeroTarjeta, validarClaveCVV } from "./formularioAux.js";
+import * as aux from "./formularioAux.js";
 // traer el formulario a validar
 
 const formulario = document.querySelector(".formulario");
@@ -10,16 +10,46 @@ formulario.addEventListener("submit", (e)=>{
 
     if(validaRegistro() && validaMetodoDePago()){
         //traemos todos los datos que se usaran para validaciones
-        let user= {usuario:document.getElementById("usuario").value,
-            correo: document.getElementById("email").value,
-            contrasenia:document.getElementById("password").value
-        };
         //los guardamos
-        localStorage.setItem(document.getElementById("email").value,JSON.stringify(user));
-        formulario.submit();
+        const usuariosRegistrados = JSON.parse(localStorage.getItem('usuarios')) || [];
+        
+        const correoExistente = usuariosRegistrados.find(usuario => usuario.correo === document.getElementById("email").value);
+        const usuarioExistente = usuariosRegistrados.find(usuario => usuario.usuario===document.getElementById("usuario").value);
+
+        if(usuarioExistente){
+            alert("este usuario ya existe")
+            e.preventDefault();
+            return;
+        }else if(correoExistente){
+            alert("este correo ya existe");
+            e.preventDefault();
+            return;
+        }else{
+            const nuevoUsuario = {
+                usuario: document.getElementById("usuario").value,
+                correo: document.getElementById("email").value,
+                contrasenia:document.getElementById("password").value,
+                tarjeta: document.querySelector('input[name="credito-debito"]:checked').value
+            };
+
+            usuariosRegistrados.push(nuevoUsuario);
+            localStorage.setItem('usuarios', JSON.stringify(usuariosRegistrados));
+
+            alert("usuario registrado");
+            formulario.submit();    
+        }
     }else{
         e.preventDefault();
     }
+
+});
+
+const cancelar = document.getElementById("cancelar");
+
+cancelar.addEventListener("click", ()=>{
+
+    window.location.href="../Index.html"
+
 });
 
 //funciones que deben ir si o si en registro
@@ -44,7 +74,7 @@ function validaRegistro(){
         contraseniasIguales=false;
     }
 
-    return contengaSoloLetras(nombre)&& contengaSoloLetras(apellido) && validarQueSeaCorreo(correo) && queContengaLetrasYNumeros(usuario) && validarContrasenia(contrasenia) 
+    return aux.validarNombre(nombre) && aux.validarApellido(apellido) && aux.validarQueSeaCorreo(correo) && aux.validarUsuario(usuario) && aux.validarContrasenia(contrasenia) 
     && contraseniasIguales;
 }
 
@@ -56,15 +86,30 @@ function validaMetodoDePago(){
     
     let clave = document.getElementById("cvv").value;
 
-    
-    if(clave.toString().trim()==="000"){
-        //done: MENSAJE DE ERROR SI SE COMPLETA CON 000 LA CLAVE TARJETA
-        alert("error cvv no puede ser 000");
+    const metodoDePago = document.querySelectorAll('input[name="credito-debito"]');
+    let emisorTarjeta= document.querySelectorAll('input[name="visa-mastercard-cabal"]'); 
+    if(!aux.validarQueUnRadioEsteCheck(metodoDePago)){
+        alert ("seleccione una tarjeta");
+        return false;
     }
-    if(!validarNumeroTarjeta(tarjeta)){
+
+    if(!aux.validarQueUnRadioEsteCheck(emisorTarjeta)){
+        alert ("seleccione un emisor de tarjeta");
+        return false;
+    }
+
+    if(!aux.validarNumeroTarjeta(tarjeta)){
         //done: mensaje de error si la tarjeta es invalida
         alert("error tarjeta no valida");
     }
 
-    return validarNumeroTarjeta(tarjeta) && contengaSoloLetras(titular) && validarClaveCVV(clave);
+    return aux.validarNumeroTarjeta(tarjeta) && aux.validarTitular(titular.trim()) && aux.validarClaveCVV(clave);
 }
+
+/*
+    DONE:
+    mejorar la experiencia de usuario
+    verificando que hizo bien el registro
+    que lo hizo mal
+    que pueda distinguir el campo o en que sector la pifio
+*/

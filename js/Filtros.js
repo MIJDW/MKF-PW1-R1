@@ -32,6 +32,8 @@ const SERIES = [
     ANNE_WITH_AN_E, BREAKING_BAD, BRIDGERTON, DAHMER, GAME_OF_THRONES, MARIANNE, SWEET_TOOTH, THE_WITCHER,
     VIKINGS
 ];
+
+ 
 /*--------------------------------------------------------------------------------------------------------*/
 function establecerCategoria(valor){
     const NODO_CATEGORIA = document.querySelector("#categoria");
@@ -96,16 +98,15 @@ function agregarImgAlContenedor(img){
     const IMG = document.createElement("img");
 
     ITEM.classList.add("item");
-    A.target = "_blank";
 
     let ubicacion = "";
 
     if(esPelicula(img)){
         ubicacion += "../img/peliculas/" + img;
-        A.href = VISTAS[1] + "?nombre=" + img;
+        A.href = VISTAS[1] + "?nombre=" + img +"&tipo=pelicula";
     }else{
         ubicacion += "../img/series/" + img;
-        A.href = VISTAS[0] + "?nombre=" + img;
+        A.href = VISTAS[0] + "?nombre=" +img + "&tipo=serie";
     }
 
     IMG.src = ubicacion;
@@ -171,8 +172,6 @@ const QUERY_PARAMS_EMAIL = "submit";
 const url_HOME = document.location.href;
 const url_NEW = new URL(url_HOME);
 const NOMBRE_HOME = url_NEW.searchParams.get(QUERY_PARAMS_EMAIL);
-
-console.log(NOMBRE_HOME);
 
 let categorias = [];
 
@@ -244,7 +243,6 @@ SELECT_CATEGORIA.addEventListener("change", () =>{
         agregarImgSegunURL(NOMBRE_HOME);
     }else{
         actualizar(nuevasImg);
-        console.log(nuevasImg);
     }
     nuevasImg = [];
     }else{
@@ -254,7 +252,6 @@ SELECT_CATEGORIA.addEventListener("change", () =>{
         agregarImgSegunURL(NOMBRE_VISTA);
     }else{
         actualizar(nuevasImg);
-        console.log(nuevasImg);
     }
     nuevasImg = [];
     }
@@ -302,15 +299,16 @@ function agregarImgSegunSubtexto(filtro, TituloNavbar){
     }
 }
 
-BUSQUEDA.addEventListener("keyup", () =>{
+BUSQUEDA.addEventListener("keyup", (e) =>{
    
+    let section= document.querySelector(".contenedorImg");
+
     if(NOMBRE_HOME == "Inicia sesion"){
         agregarImgSegunSubtexto(filtro, NOMBRE_HOME)
     if(BUSQUEDA.value == ""){
         eliminarImg();
         agregarImgSegunURL(NOMBRE_HOME);
     }else{
-        console.log(filtro)
         actualizar(filtro);
         filtro = [];
     } 
@@ -320,9 +318,42 @@ BUSQUEDA.addEventListener("keyup", () =>{
         eliminarImg();
         agregarImgSegunURL(NOMBRE_VISTA);
     }else{
-        console.log(filtro)
         actualizar(filtro);
         filtro = [];
     } 
     }
+    if(section.children.length === 0){
+        document.getElementById("body").classList.add("d");
+        document.querySelector(".contenedorImg").innerHTML+=`<section class="contenedorCategoria" id="new"><h1>no se encontro resultados</h1></section>`
+    }else if(document.getElementById("new")!=null && section.children.length> 1){
+        document.getElementById("body").classList.remove("d")
+        document.getElementById("new").remove();
+    }
 })
+/*-------------------------------------------------------------------------------------------------------*/
+function botonFlotanteSegunVista(vista){
+    const MAIN = document.querySelector("main");
+    const DIV = document.createElement("div");
+    const BOTON_FLOTANTE = document.createElement("button");
+    const A = document.createElement("a");
+    const SPAN = document.createElement("span");
+
+    DIV.classList.add("flotante");
+    BOTON_FLOTANTE.type = "submit";
+    BOTON_FLOTANTE.classList.add("btn-flotante");
+    A.href = "./principal.html?nav=" + vista;
+    SPAN.classList.add("flecha");
+    SPAN.classList.add("fa-solid");
+    SPAN.classList.add("fa-arrow-up");
+
+    A.appendChild(SPAN);
+    BOTON_FLOTANTE.appendChild(A);
+    DIV.appendChild(BOTON_FLOTANTE);
+    MAIN.appendChild(DIV);
+}
+
+if(NOMBRE_HOME == 'Inicia sesion'){
+    botonFlotanteSegunVista("Home");
+}else{
+    botonFlotanteSegunVista(NOMBRE_VISTA);
+}
